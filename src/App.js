@@ -51,6 +51,8 @@ const tempWatchedData = [
 const average = (arr) =>
   arr.reduce((acc, cur, i, arr) => acc + cur / arr.length, 0);
 
+
+// ? STRUCTURAL COMPONENT
 export default function App() {
   return (
     <>
@@ -60,12 +62,8 @@ export default function App() {
   );
 }
 
-/*
-└── NavBar
-    ├── Logo
-    ├── Search
-    └── NumResults
-*/
+
+// ? STRUCTURAL COMPONENT
 function NavBar() {
   return (
     <nav className="nav-bar">
@@ -76,6 +74,7 @@ function NavBar() {
   );
 }
 
+// ? PRESENTATIONAL COMPONENT (STATELESS & PRESENTS CONTENT)
 // * LOGO
 function Logo() {
   return (
@@ -86,6 +85,7 @@ function Logo() {
   );
 }
 
+// ? STATEFUL COMPONENT
 // * SEARCH
 function Search() {
   const [query, setQuery] = useState("");
@@ -100,6 +100,7 @@ function Search() {
   );
 }
 
+// ? PRESENTATIONAL C.
 // * NUMRESULTS
 function NumResults() {
   return (
@@ -109,6 +110,7 @@ function NumResults() {
   );
 }
 
+// ? STRUCTURAL C.
 // * MAIN
 function Main() {
   return (
@@ -119,6 +121,7 @@ function Main() {
   );
 }
 
+// ? STATEFUL C.
 function ListBox() {
   const [isOpen1, setIsOpen1] = useState(true);
 
@@ -135,6 +138,7 @@ function ListBox() {
   );
 }
 
+// ? STATEFUL C.
 function MovieList() {
   const [movies, setMovies] = useState(tempMovieData);
 
@@ -147,6 +151,7 @@ function MovieList() {
   );
 }
 
+// ? PRESENTATIONAL C.
 function Movie({ movie }) {
   return (
     <li>
@@ -162,6 +167,7 @@ function Movie({ movie }) {
   );
 }
 
+// ? STATEFUL C.
 function WatchedBox() {
   const [watched, setWatched] = useState(tempWatchedData);
   const [isOpen2, setIsOpen2] = useState(true);
@@ -184,6 +190,7 @@ function WatchedBox() {
   );
 }
 
+// ? PRESENTATIONAL C.
 function WatchedSummary({ watched }) {
   const avgImdbRating = average(watched.map((movie) => movie.imdbRating));
   const avgUserRating = average(watched.map((movie) => movie.userRating));
@@ -214,6 +221,7 @@ function WatchedSummary({ watched }) {
   );
 }
 
+// ? PRESENTATIONAL C.
 function WatchedMoviesList({ watched }) {
   return (
     <ul className="list">
@@ -224,6 +232,7 @@ function WatchedMoviesList({ watched }) {
   );
 }
 
+// ? PRESENTATIONAL C.
 function WatchedMovie({ movie }) {
   return (
     <li>
