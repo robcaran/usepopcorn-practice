@@ -62,12 +62,16 @@ export default function App() {
         <Search />
         <NumResults movies={movies} />
       </NavBar>
-      <Main movies={movies} />
+      <Main>
+        <ListBox> <MovieList movies={movies}/> </ListBox>
+        <WatchedBox />
+      </Main>
     </>
   );
 }
 
 // ? STRUCTURAL COMPONENT
+// NavBar gets three components passed in via children
 function NavBar({ children }) {
   return <nav className="nav-bar">{children}</nav>;
 }
@@ -110,17 +114,12 @@ function NumResults({ movies }) {
 
 // ? STRUCTURAL C.
 // * MAIN
-function Main({ movies }) {
-  return (
-    <main className="main">
-      <ListBox movies={movies} />
-      <WatchedBox />
-    </main>
-  );
+function Main({ children }) {
+  return <main className="main">{children}</main>;
 }
 
 // ? STATEFUL C.
-function ListBox({ movies }) {
+function ListBox({ children }) {
   const [isOpen1, setIsOpen1] = useState(true);
 
   return (
@@ -131,7 +130,7 @@ function ListBox({ movies }) {
       >
         {isOpen1 ? "–" : "+"}
       </button>
-      {isOpen1 && <MovieList movies={movies} />}
+      {isOpen1 && {children} />}
     </div>
   );
 }
