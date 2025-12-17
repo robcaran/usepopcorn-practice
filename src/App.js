@@ -63,6 +63,7 @@ export default function App() {
         <Search />
         <NumResults movies={movies} />
       </NavBar>
+
       <Main>
         <Box>
           <MovieList movies={movies} />
@@ -72,6 +73,7 @@ export default function App() {
           <WatchedMoviesList watched={watched} />
         </Box>
       </Main>
+
     </>
   );
 }
